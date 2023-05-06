@@ -1,18 +1,47 @@
 import { h } from 'preact'
 
+/* const DivList = () => {
+  const divList = Array.from({ length: 5000 }, (_, i) => (
+    <div>div numero: {i}</div>
+  ))
+  return <div>{divList}</div>
+} */
 
-const App = () => {
-	const start = performance.now()
+/* const DivList = () => {
+	const divList = Array(10000)
+	  .fill()
+	  .map((_, i) => <div>div numero: {i}</div>);
+	return <div>{divList}</div>;
+  }
+ */
+/* 
+  function* range(start, end) {
+	for (let i = start; i <= end; i++) {
+	  yield i
+	}
+  }
   
-	const divList = []
-	for (let i = 0; i < 10000; i++) {
+  const DivList = () => {
+	const divList = [];
+	for (let i of range(0, 9999)) {
 	  divList.push(<div>div numero: {i}</div>)
 	}
+	return <div>{divList}</div>
+  } */
+
   
-	const end = performance.now()
-	console.log(`10 000 div luomisen kesto: ${end - start}ms`)
-  
+const DivList = () => {
+	const divList = Array.from({ length: 10000 }, (_, i) => (
+	  <div>div numero: {i}</div>
+	))
 	return <div>{divList}</div>
   }
 
-export default App
+
+const App = () => (
+  <div id="app">
+    <DivList />
+  </div>
+)
+
+export default App;
